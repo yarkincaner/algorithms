@@ -14,4 +14,15 @@ public class GenerateArray {
 
         return A;
     }
+
+    public static int[][] generate2DIntArray(int row, int col) {
+        int[][] A = new int[col][row];
+        for (int i = 0; i < col; i++) {
+            for (int j = 0; j < row; j++) {
+                A[i][j] = r.nextInt(row * col * 3);
+            }
+        }
+
+        return A;
+    }
 }
