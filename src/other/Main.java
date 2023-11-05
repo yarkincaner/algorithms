@@ -18,13 +18,14 @@ public class Main {
     }
 
     public static void matrixMultiplication() {
-        int[][] A = GenerateArray.generate2DIntArray(2, 2);
-        int[][] B = GenerateArray.generate2DIntArray(2, 2);
+        int[][] A = GenerateArray.generate2DIntArray(3, 3);
+        int[][] B = GenerateArray.generate2DIntArray(3, 3);
 
         System.out.println("A: " + Arrays.deepToString(A));
         System.out.println("B: " + Arrays.deepToString(B));
 
 //        System.out.println(Arrays.deepToString(MatrixMultiplication.multiply(A, B)));
-        System.out.println("C: " + Arrays.deepToString(MatrixMultiplication.multiplyDAC(A, B, 0, 0, 0, 0, A.length)));
+//        System.out.println("C: " + Arrays.deepToString(MatrixMultiplication.multiplyDAC(A, B, 0, 0, 0, 0, A.length)));
+        System.out.println("C: " + Arrays.deepToString(MatrixMultiplication.strassen(A, B)));
     }
 }
