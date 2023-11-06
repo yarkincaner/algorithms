@@ -18,8 +18,8 @@ public class Main {
     }
 
     public static void matrixMultiplication() {
-        int[][] A = GenerateArray.generate2DIntArray(3, 3);
-        int[][] B = GenerateArray.generate2DIntArray(3, 3);
+        int[][] A = GenerateArray.generate2DIntArray(2, 2);
+        int[][] B = GenerateArray.generate2DIntArray(2, 2);
 
         System.out.println("A: " + Arrays.deepToString(A));
         System.out.println("B: " + Arrays.deepToString(B));
