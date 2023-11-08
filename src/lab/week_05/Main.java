@@ -10,20 +10,37 @@ public class Main {
         LCS();
     }
 
-    // Cutting the logs
+    // Cutting The Logs
     public static void CTL() {
         System.out.println("--------- Cutting The Logs ---------");
-        int[] CTL10 = generateIntArray(10, 10);
-//        int[] CTL100 = generateIntArray(100, 10);
-//        int[] CTL1000 = generateIntArray(1000, 10);
-//        int[] CTL10000 = generateIntArray(10000, 10);
 
-        System.out.println(Arrays.toString(CTL10));
-        long startTime10 = System.currentTimeMillis();
-        System.out.println("Result of n = 4: " + ctl_recursive(CTL10, 4));
-        long endTime10 = System.currentTimeMillis();
-        long resultTime10 = endTime10 - startTime10;
-        System.out.println("Runtime: " + resultTime10 + "ms");
+        // Initializing arrays
+        int[] CTL_xsmall = generateIntArray(10, 10);
+        int[] CTL_small = generateIntArray(15, 10);
+        int[] CTL_medium = generateIntArray(20, 10);
+        int[] CTL_large = generateIntArray(25, 10);
+        int[] CTL_xlarge = generateIntArray(30, 10);
+
+
+        System.out.printf("%10s | %10s\n", "Size", "Runtime (ms)");
+        // Run CTL algorithm and measure runtime
+        runCTL(CTL_xsmall);
+        runCTL(CTL_small);
+        runCTL(CTL_medium);
+        runCTL(CTL_large);
+        runCTL(CTL_xlarge);
+    }
+
+    public static void runCTL(int[] A) {
+//        System.out.println("----- n = " + A.length + " -----");
+//        System.out.println(Arrays.toString(A));
+        long startTime = System.currentTimeMillis();
+        int result = ctl_recursive(A, A.length);
+        long endTime = System.currentTimeMillis();
+        long runtime = endTime - startTime;
+//        System.out.println("Result" + " --> " + result);
+        System.out.printf("%10d | %10d\n", A.length, runtime);
+//        System.out.println("Runtime: " + resultTime + "ms");
     }
 
     /**
@@ -41,42 +58,35 @@ public class Main {
         return r_n;
     }
 
+    // Longest Common Substring
     public static void LCS() {
         System.out.println("--------- Longest Common Substrings ---------");
 
         // Generating strings
-        String X10 = generateString(10);
-        String Y10 = generateString(10);
-        String X100 = generateString(100);
-        String Y100 = generateString(100);
-        String X1000 = generateString(1000);
-        String Y1000 = generateString(1000);
-        String X10000 = generateString(10000);
-        String Y10000 = generateString(10000);
-        // n = 10
-        long startTime10 = System.currentTimeMillis();
-        int result10 = lcs_recursive(X10, Y10, X10.length()-1, Y10.length()-1, 0);
-        long endTime10 = System.currentTimeMillis();
-        long runningTime10 = endTime10 - startTime10;
-        System.out.println("Size n = 10: " + result10 + "\nRuntime: " + runningTime10 + "ms");
-        // n = 100
-//        long startTime100 = System.currentTimeMillis();
-//        int result100 = lcs_recursive(X100, Y100, X100.length()-1, Y100.length()-1, 0);
-//        long endTime100 = System.currentTimeMillis();
-//        long runningTime100 = endTime100 - startTime100;
-//        System.out.println("Result of size 100: " + result100 + " in " + runningTime100 + "ms");
-//        // n = 1000
-//        long startTime1000 = System.currentTimeMillis();
-//        int result1000 = lcs_recursive(X1000, Y1000, X1000.length()-1, Y1000.length()-1, 0);
-//        long endTime1000 = System.currentTimeMillis();
-//        long runningTime1000 = endTime1000 - startTime1000;
-//        System.out.println("Result of size 1000: " + result1000 + " in " + runningTime1000 + "ms");
-//        // n = 10000
-//        long startTime10000 = System.currentTimeMillis();
-//        int result10000 = lcs_recursive(X10000, Y10000, X10000.length()-1, Y10000.length()-1, 0);
-//        long endTime10000 = System.currentTimeMillis();
-//        long runningTime10000 = endTime10000 - startTime10000;
-//        System.out.println("Result of size 10000: " + result10000 + " in " + runningTime10000 + "ms");
+        String X_small = generateString(10);
+        String Y_small = generateString(10);
+        String X_medium = generateString(15);
+        String Y_medium = generateString(15);
+        String X_large = generateString(20);
+        String Y_large = generateString(20);
+
+        System.out.printf("%10s | %10s\n", "Size", "Runtime (ms)");
+        // Run LCS algorithm and measure runtime
+        runLCS(X_small, Y_small);
+        runLCS(X_medium, Y_medium);
+        runLCS(X_large, Y_large);
+    }
+
+    public static void runLCS(String X, String Y) {
+//        System.out.println("----- n = " + X.length() + " -----");
+//        System.out.println("X: " + X + "\nY: " + Y);
+        long startTime = System.currentTimeMillis();
+        int result = lcs_recursive(X, Y, X.length()-1, Y.length()-1, 0);
+        long endTime = System.currentTimeMillis();
+        long runtime = endTime - startTime;
+//        System.out.println("Result" + " --> " + result);
+        System.out.printf("%10d | %10d\n", X.length(), runtime);
+//        System.out.println("Runtime: " + resultTime + "ms");
     }
 
     /**
