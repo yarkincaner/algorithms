@@ -44,7 +44,7 @@ public class QuickSort {
      * @return a number which indicates left from that index is less than pivot, right from that is index is
      * larger than pivot
      */
-    private static int hoare_partition(int[] A, int p, int r) {
+    public static int hoare_partition(int[] A, int p, int r) {
         int pivot = A[p];
         int i = p-1;
         int j = r+1;

@@ -7,7 +7,9 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        matrixMultiplication();
+        int[] A = GenerateArray.generateIntArray(10);
+        System.out.println(Arrays.toString(A));
+        System.out.println(randomSelect(A));
     }
 
     public static void calculatePower() {
@@ -27,5 +29,9 @@ public class Main {
 //        System.out.println(Arrays.deepToString(MatrixMultiplication.multiply(A, B)));
 //        System.out.println("C: " + Arrays.deepToString(MatrixMultiplication.multiplyDAC(A, B, 0, 0, 0, 0, A.length)));
         System.out.println("C: " + Arrays.deepToString(MatrixMultiplication.strassen(A, B)));
+    }
+
+    public static int randomSelect(int[] A) {
+        return RandomSelect.random_select(A, 0, A.length-1, 4);
     }
 }
